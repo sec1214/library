@@ -33,10 +33,13 @@ function createDeleteButton(index) {
 // Create the toggle read button
 function createToggleReadButton(book, index) {
   const toggleReadButton = document.createElement("button");
-  toggleReadButton.textContent = book.read
-    ? "Not Read"
-    : "Read"; // Set button text based on status
-  toggleReadButton.classList.add("toggle-read-button");
+  toggleReadButton.textContent = book.read ? "Not Read" : "Read"; // Set button text based on status
+  toggleReadButton.classList.add("toggle-read");
+
+  if (!book.read) {
+    toggleReadButton.classList.add("not-read");
+  }
+
   toggleReadButton.setAttribute("data-index", index); // Assign the index as a data attribute
   return toggleReadButton; // Return the button (no direct event listener here)
 }
@@ -83,7 +86,7 @@ document
     }
 
     // Check if the clicked element is a toggle read button
-    if (event.target.classList.contains("toggle-read-button")) {
+    if (event.target.classList.contains("toggle-read")) {
       const index = event.target.getAttribute("data-index"); // Get the index from the data attribute
       toggleReadStatus(index); // Toggle the read status of the book
     }

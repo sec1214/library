@@ -5,37 +5,19 @@
   box-sizing: border-box;
 }
 
+/* Body */
 body {
-  background-image: url("images/pexels-juanpphotoandvideo-877971.jpg");
-  background-size: cover; /* Ensures the image covers the entire background */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
-  background-position: center; /* Centers the image */
   font-family: 'Arial', sans-serif;
-  background-color: #f4f4f9;
   color: #333;
   line-height: 1.6;
-  padding: 20px;
 }
 
-h1, h2, h3 {
-  color: #444;
-}
-
-/* Main Container */
-#mainContainer {
-  max-width: 1200px;
-  margin: 0 auto;
+/* Header Styling */
+header {
+  background-color:white; /* Solid purple background for header */
+  color: black;
   padding: 20px;
   text-align: center;
-}
-
-/* Header */
-header {
-  background-color: #6200ea;
-  color: white;
-  padding: 20px;
-  border-radius: 8px;
-  margin-bottom: 30px;
 }
 
 header h1 {
@@ -58,6 +40,17 @@ header button:hover {
   background-color: #6200ea;
 }
 
+/* Main Container - Background Image and Stretch */
+#mainContainer {
+  background-image: url("images/pexels-juanpphotoandvideo-877971.jpg");
+  background-size: cover; /* Ensures the image covers the entire background */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center; /* Centers the image */
+  padding: 40px;
+  color: #fff; /* Text color to stand out on the image */
+  min-height: 100vh; /* Makes the content take up at least the full viewport height */
+}
+
 /* Book Display */
 #bookInfoDisplay {
   display: flex;
@@ -76,6 +69,7 @@ header button:hover {
   width: 250px;
   text-align: left;
   transition: transform 0.2s, box-shadow 0.2s;
+  color: black;
 }
 
 .card:hover {
@@ -94,14 +88,14 @@ header button:hover {
 }
 
 .card p strong {
-  color: #6200ea;
+  color: black;
 }
 
 /* Buttons on Cards */
 .card button {
   display: inline-block;
   padding: 8px 12px;
-  margin: 5px 5px 0 0; /* Add spacing between buttons */
+  margin: 5px 5px 0 0; /* Spacing between buttons */
   font-size: 0.9rem;
   border: none;
   border-radius: 4px;
@@ -109,26 +103,31 @@ header button:hover {
   transition: background-color 0.3s;
 }
 
+/* Delete Button */
 .delete-button {
-  background-color: #d32f2f;
+  background-color: #d32f2f; /* Red */
   color: white;
 }
 
 .delete-button:hover {
-  background-color: #b71c1c;
+  background-color: yellow; 
+  color: black;
 }
 
+/* Toggle Read Button */
 .toggle-read {
-  background-color: #388e3c;
+  background-color: green; /* Red by default */
   color: white;
 }
 
-.toggle-read.not-read {
-  background-color: #d32f2f;
+.not-read {
+  background-color:green; /* Green for not-read status */
 }
 
+/* No hover effect for brightness or transitions */
 .toggle-read:hover {
-  filter: brightness(1.2);
+  background-color: yellow; /* Instant change to yellow on hover */
+  color: black;
 }
 
 /* Form Modal */
@@ -183,6 +182,7 @@ form button {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-top: 15px; /* Added margin between buttons */
 }
 
 #cancelButton {
@@ -212,5 +212,13 @@ form button {
 
   .card {
     width: 90%;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  header button {
+    font-size: 1rem;
   }
 }

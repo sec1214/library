@@ -8,31 +8,35 @@
     <!-- Link to external CSS -->
   </head>
   <body>
-    <h1>My Book Library</h1>
-    <button id="newBookButton">Add New Book</button>
+    <header>
+      <h1>My Book Library</h1>
+      <button id="newBookButton">Add New Book</button>
+    </header>
 
-    <!-- Dialog for adding a new book -->
-    <dialog id="bookFormDialog">
-      <form id="bookForm">
-        <label for="title">Title:</label>
-        <input type="text" id="title" required /><br /><br />
+    <main id="mainContainer">
+      <!-- Dialog for adding a new book -->
+      <dialog id="bookFormDialog">
+        <form id="bookForm">
+          <label for="title">Title:</label>
+          <input type="text" id="title" required /><br /><br />
 
-        <label for="author">Author:</label>
-        <input type="text" id="author" required /><br /><br />
+          <label for="author">Author:</label>
+          <input type="text" id="author" required /><br /><br />
 
-        <label for="pages">Number of Pages:</label>
-        <input type="number" id="pages" required /><br /><br />
+          <label for="pages">Number of Pages:</label>
+          <input type="number" id="pages" required /><br /><br />
 
-        <label> <input type="checkbox" id="read" /> Have you read it? </label
-        ><br /><br />
+          <label> <input type="checkbox" id="read" /> Have you read it? </label
+          ><br /><br />
 
-        <button type="submit">Add Book</button>
-        <button type="button" id="cancelButton">Cancel</button>
-      </form>
-    </dialog>
+          <button type="submit">Add Book</button>
+          <button type="button" id="cancelButton">Cancel</button>
+        </form>
+      </dialog>
 
-    <!-- Section where books are displayed -->
-    <div id="bookInfoDisplay"></div>
+      <!-- Section where books are displayed -->
+      <div id="bookInfoDisplay"></div>
+    </main>
 
     <script src="library.js"></script>
     <!-- Link to external JavaScript -->
