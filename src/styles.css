@@ -42,7 +42,7 @@ header button:hover {
 
 /* Main Container - Background Image and Stretch */
 #mainContainer {
-  background-image: url("images/pexels-juanpphotoandvideo-877971.jpg");
+  background-image: url('./images/pexels-juanpphotoandvideo-877971.jpg');
   background-size: cover; /* Ensures the image covers the entire background */
   background-repeat: no-repeat; /* Prevents the image from repeating */
   background-position: center; /* Centers the image */
