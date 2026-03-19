@@ -12,27 +12,40 @@
     </header>
 
     <main id="mainContainer">
-      <!-- Dialog for adding a new book -->
       <dialog id="bookFormDialog">
-        <form id="bookForm">
-          <label for="title">Title:</label>
-          <input type="text" id="title" required /><br /><br />
+        <form id="bookForm" novalidate>
+          <div class="form-control">
+            <label for="title">Book Title:</label>
+            <input type="text" id="title" name="title" required />
+            <span class="error-message" aria-live="polite"></span>
+          </div>
 
-          <label for="author">Author:</label>
-          <input type="text" id="author" required /><br /><br />
+          <div class="form-control">
+            <label for="author">Author Name:</label>
+            <input type="text" id="author" name="author" required />
+            <span class="error-message" aria-live="polite"></span>
+          </div>
 
-          <label for="pages">Number of Pages:</label>
-          <input type="number" id="pages" required /><br /><br />
+          <div class="form-control">
+            <label for="pages">Number of Pages:</label>
+            <input type="number" id="pages" name="pages" required />
+            <span class="error-message" aria-live="polite"></span>
+          </div>
 
-          <label> <input type="checkbox" id="read" /> Have you read it? </label
-          ><br /><br />
+          <div class="form-control checkbox-group">
+            <label>
+              <input type="checkbox" id="read" name="read" />
+              Have you read it?
+            </label>
+          </div>
 
-          <button type="submit">Add Book</button>
-          <button type="button" id="cancelButton">Cancel</button>
+          <div class="form-actions">
+            <button type="submit" id="submitButton">Add Book</button>
+            <button type="button" id="cancelButton">Cancel</button>
+          </div>
         </form>
       </dialog>
 
-      <!-- Section where books are displayed -->
       <div id="bookInfoDisplay"></div>
     </main>
   </body>

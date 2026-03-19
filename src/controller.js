@@ -1,4 +1,6 @@
-import { render } from "./domManager.js";
+// controller.js
+
+import { render, displayError, clearErrors } from "./domManager.js";
 import { Book } from "./book.js";
 import { saveLibrary, loadLibrary } from "./storage.js";
 
@@ -11,22 +13,40 @@ export const initController = () => {
   const bookForm = document.querySelector("#bookForm");
   const display = document.querySelector("#bookInfoDisplay");
 
-  // Initial render to show saved books
   render(myLibrary);
 
-  // Open/Close Dialog
-  newBookBtn.addEventListener("click", () => dialog.showModal());
+  newBookBtn.addEventListener("click", () => {
+    clearErrors();
+    bookForm.reset();
+    dialog.showModal();
+  });
+
   cancelBtn.addEventListener("click", () => dialog.close());
 
-  // Handle Form Submission
   bookForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    clearErrors(); // Clear previous errors before re-validating
 
-    const title = document.querySelector("#title").value;
-    const author = document.querySelector("#author").value;
+    const title = document.querySelector("#title").value.trim();
+    const author = document.querySelector("#author").value.trim();
     const pages = document.querySelector("#pages").value;
     const isRead = document.querySelector("#read").checked;
 
+    let hasError = false;
+
+    // Validation Logic
+    if (!title) {
+      displayError("title", "The book title must be filled!");
+      hasError = true;
+    }
+    if (!author) {
+      displayError("author", "The author name must be filled!");
+      hasError = true;
+    }
+
+    if (hasError) return; // Stop the function here if validation fails
+
+    // Proceed if valid
     const newBook = new Book(title, author, pages, isRead);
     myLibrary.push(newBook);
 
@@ -37,14 +57,11 @@ export const initController = () => {
     dialog.close();
   });
 
-  // Handle Clicks on the Book Cards (Delete & Toggle)
   display.addEventListener("click", (e) => {
     const target = e.target;
     const index = target.dataset.index;
-
     if (index === undefined) return;
 
-    // Updated class names to match CSS/domManager
     if (target.classList.contains("delete-button")) {
       myLibrary.splice(index, 1);
       saveLibrary(myLibrary);
@@ -52,7 +69,6 @@ export const initController = () => {
       myLibrary[index].read = !myLibrary[index].read;
       saveLibrary(myLibrary);
     }
-
     render(myLibrary);
   });
 };
