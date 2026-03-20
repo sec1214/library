@@ -222,3 +222,25 @@ form button {
     font-size: 1rem;
   }
 }
+
+/* The default state (hidden) */
+.error-message {
+  display: block;
+  color: #ff3333;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  min-height: 1em; /* Keeps the layout from jumping when text appears */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* The state when JS finds an error */
+.error-message.active {
+  opacity: 1;
+}
+
+/* Optional: Highlight the input box too */
+input.invalid {
+  border: 2px solid #ff3333;
+  background-color: #fff0f0;
+}
